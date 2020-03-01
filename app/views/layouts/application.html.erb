@@ -37,9 +37,16 @@
      <div id="navbarExample" class="navbar-menu">
       <div class="navbar-end">
         <div class="field is-grouped">
-          <p class="control">
-            <%= link_to 'New Post', new_post_path, class: "button is-info is-inverted" %>
-          </p>
+          <% if current_user %>
+            <p class="control">
+              <%= link_to 'New Post', new_post_path, class: "button is-info is-inverted" %>
+            </p>
+          <%end%>
+          <% if !current_user %>
+            <p class="control">
+              <%= link_to 'Sign Up', new_user_registration_path, class: "button is-info is-inverted" %>
+            </p>
+          <%end%>
         </div>
       </div>
      </div>
